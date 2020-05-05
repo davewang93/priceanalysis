@@ -36,16 +36,16 @@ client= API(access_token=access_token,environment="live")
 
 #parameters for request
 params = {
-  "count" : "50",
+  "count" : "5000",
   "granularity": "D"
 }
 
 #see test file for full doc - define instrument below
-r = instruments.InstrumentsCandles(instrument="USD_JPY", params = params)
+r = instruments.InstrumentsCandles(instrument="EUR_NZD", params = params)
 RawTable = client.request(r)
 normalize = json_normalize(RawTable['candles'])
 candles = pd.DataFrame(normalize, columns=['volume','time','mid.o','mid.h','mid.l','mid.c',]).set_index('time')
 candles.index = pd.DatetimeIndex(candles.index)
 #print(candles)
-
-candles.to_sql("test",engine)
+ 
+candles.to_sql("eurnzd",engine)
