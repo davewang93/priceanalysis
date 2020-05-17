@@ -266,7 +266,7 @@ params = {
   "to" : today,
   "granularity": "D"
 }
-r = instruments.InstrumentsCandles(instrument="EUR_NZD, params = params)
+r = instruments.InstrumentsCandles(instrument="EUR_NZD", params = params)
 RawTable = client.request(r)
 normalize = json_normalize(RawTable['candles'])
 candles = pd.DataFrame(normalize, columns=['volume','time','mid.o','mid.h','mid.l','mid.c',]).set_index('time')
