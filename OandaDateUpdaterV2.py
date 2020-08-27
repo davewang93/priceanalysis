@@ -27,7 +27,7 @@ mydb = mysql.connector.connect(
     host = host,
     user = user,
     passwd = passwd,
-    database = database,
+    database = database
 )
 
 #connect to db using sqlalchemy
