@@ -9,9 +9,12 @@ import datetime
 from datetime import timedelta
 from pandas.io.json import json_normalize
 from configparser import ConfigParser 
+import os
 
+directory = os.path.dirname(os.path.abspath(__file__))
+configfile = os.path.join(directory, 'config.ini')
 parser = ConfigParser()
-parser.read('config.ini')
+parser.read(configfile)
 
 host = parser.get('pricedb','host')
 user = parser.get('pricedb','user')
@@ -38,7 +41,8 @@ client= API(access_token=access_token,environment="live")
 
 #see FredUpdaterV2 for detailed loop conversion comments
 
-OandaDF = pd.read_csv("OandaList.csv", engine='python')
+OandaList = os.path.join(directory, 'OandaList.csv')
+OandaDF = pd.read_csv(OandaList, engine='python')
 
 my_cursor = mydb.cursor()
 
