@@ -5,7 +5,7 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 import mysql.connector
-import datetime
+import datetime 
 from datetime import timedelta
 from pandas.io.json import json_normalize
 from configparser import ConfigParser 
