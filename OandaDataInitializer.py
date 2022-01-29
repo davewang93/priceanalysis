@@ -36,7 +36,7 @@ client= API(access_token=access_token,environment="live")
 
 #parameters for request
 params = {
-  "count" : "5000",
+  "count" : "1",
   "granularity": "D"
 }
 
